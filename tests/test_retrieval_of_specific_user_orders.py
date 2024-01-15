@@ -16,7 +16,6 @@ class TestRetrievalOfCpecificUserOrder:
         assert response.status_code == 401 and response.json()["success"] == False and \
                response.json()["message"] == "You should be authorised"
 
-
     @allure.title('Проверяем получение заказа конкретного пользователя c токеном авторизацией')
     def test_retrieval(self, user_with_create_order):
         access_token = user_with_create_order

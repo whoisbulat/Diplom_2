@@ -16,7 +16,6 @@ class TestCreateOrder:
         assert response.status_code == 200 and response.json()["success"] == True and response.json()["order"]
         print(response.json()["order"])
 
-
     @allure.title('Проверяем создание заказа с токеном авторизации')
     def test_create_order_with_authorization(self, register_and_login_user):
         access_token = register_and_login_user
