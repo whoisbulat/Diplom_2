@@ -14,6 +14,7 @@ class TestCreateOrder:
         }
         response = requests.post(" https://stellarburgers.nomoreparties.site/api/orders", data=data)
         assert response.status_code == 200 and response.json()["success"] == True and response.json()["order"]
+        print(response.json()["order"])
 
 
     @allure.title('Проверяем создание заказа с токеном авторизации')
