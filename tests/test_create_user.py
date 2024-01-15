@@ -21,7 +21,6 @@ class TestCreateUser:
                and "name" in response.json()["user"]
 
 
-
     @allure.title('Проверяем что упадет ошибка при попытки создания пользователя без обязательного поля')
     @pytest.mark.parametrize("email, password, name", [
         ("", "password","name"),

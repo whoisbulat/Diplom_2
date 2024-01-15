@@ -17,7 +17,6 @@ class TestLoginUser:
                and "name" in response.json()["user"]
 
 
-
     @allure.title('Проверяем логин с пустым логином или паролем')
     @pytest.mark.parametrize("email, password", [
         ("test-data@yandex.ru", ""),

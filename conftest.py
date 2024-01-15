@@ -36,9 +36,7 @@ def user_with_create_order(register_and_login_user):
     response = requests.post("https://stellarburgers.nomoreparties.site/api/orders",
                              data=data, headers={"Authorization": access_token})
 
-    return response.json()['number']
-
-
+    return access_token
 
 
 @pytest.fixture

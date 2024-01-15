@@ -26,7 +26,6 @@ class TestCreateOrder:
                                   data=data, headers={"Authorization": access_token})
         assert response.status_code == 200 and response.json()["order"] and response.json()["success"] == True
 
-
     @allure.title('Проверяем что вернется 500 при невалидном заказе')
     def test_update_user_with_invalid_hash_in_request_returns_500(self):
 
