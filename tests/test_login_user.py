@@ -8,17 +8,13 @@ fake = Faker()
 
 class TestLoginUser:
     @allure.title('Проверяем успешный логин курьера')
-    def test_success_login_user(self):
-        user = {
-            "email": "test-data@yandex.ru",
-            "password": "password",
-            "name": "name"
-        }
+    def test_success_login_user(self, register_user_get_user_credentials):
+        user = register_user_get_user_credentials
+
         response = requests.post("https://stellarburgers.nomoreparties.site/api/auth/login", data=user)
         assert response.status_code == 200 and response.json()["success"] == True and "accessToken" in response.json() \
                and "refreshToken" in response.json() and  "user" in response.json() and "email" in response.json()["user"] \
                and "name" in response.json()["user"]
-
 
 
     @allure.title('Проверяем логин с пустым логином или паролем')

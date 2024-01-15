@@ -39,14 +39,10 @@ class TestCreateUser:
                and response.json()["success"] == False
 
 
-
     @allure.title('Проверяем что упадет ошибка при попытки создания пользователя который уже есть в системе')
-    def test_check_create_identical_user(self):
-        user = {
-            "email": "test-data@yandex.ru",
-            "password": "password",
-            "name": "Username"
-        }
+    def test_check_create_identical_user(self, register_user_get_user_credentials):
+        user = register_user_get_user_credentials
+
         response = requests.post("https://stellarburgers.nomoreparties.site/api/auth/register", data=user)
 
         assert response.status_code == 403 and response.json()["message"] == "User already exists" \
