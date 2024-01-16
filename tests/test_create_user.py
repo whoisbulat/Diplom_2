@@ -38,7 +38,6 @@ class TestCreateUser:
                and response.json()["success"] == False
 
 
-
     @allure.title('Проверяем что упадет ошибка при попытки создания пользователя который уже есть в системе')
     def test_check_create_identical_user(self, register_user_get_user_credentials):
         user = register_user_get_user_credentials
